@@ -32,8 +32,10 @@ From the image page that you want to test:
       });
     }, "jsonp");
 
+i.e. http://ipinfo.io/8.8.8.8
+
 ## TO DO
 
-  - Write tests! I was short on time.
+  - Write tests!
   - Improve styling!
 
