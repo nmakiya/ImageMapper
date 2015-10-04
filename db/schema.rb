@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151004061606) do
+ActiveRecord::Schema.define(version: 20151004154147) do
 
   create_table "events", force: :cascade do |t|
     t.integer  "image_id"
     t.inet     "ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "images", force: :cascade do |t|
