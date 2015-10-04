@@ -17,20 +17,20 @@ Quick summary:
 
 ## Simulate Events
 
-  From the image page that you want to test:
+From the image page that you want to test:
 
-  $.get("http://ipinfo.io/some.ip.to.test", function(response) {
-    console.log(response);
-    $.ajax({
-      url: window.location + "/update",
-      method: "post",
-      data: {
-        ip: response.ip,
-        lat: response.loc.split(",")[0],
-        lon: response.loc.split(",")[1]
-      }
-    });
-  }, "jsonp");
+    $.get("http://ipinfo.io/some.ip.to.test", function(response) {
+      console.log(response);
+      $.ajax({
+        url: window.location + "/update",
+        method: "post",
+        data: {
+          ip: response.ip,
+          lat: response.loc.split(",")[0],
+          lon: response.loc.split(",")[1]
+        }
+      });
+    }, "jsonp");
 
 ## TO DO
 
