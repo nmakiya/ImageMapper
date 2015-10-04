@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+  if(typeof(gon) == "undefined") {
+    return ;
+  }
+
   $.get("http://ipinfo.io", function(response) {
     console.log(response);
     $.ajax({
@@ -12,10 +16,6 @@ $(document).ready(function() {
       }
     });
   }, "jsonp");
-
-  if(typeof(gon) == "undefined") {
-    return ;
-  }
 
   // Get coordinates from events for plotting
   var events = gon.events;
