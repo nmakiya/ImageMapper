@@ -1,3 +1,9 @@
-<%= form_for @user, url: '/users/update', html: { multipart: true } do |form| %>
-  <%= form.file_field :image %>
+<%= form_for :image, url: '/images/new', html: { multipart: true } do |form| %>
+  <%= form.file_field :file %>
+  <%= form.submit %>
+<% end %>
+
+<% @user.images.each do |i| %>
+  <%= i.image.url %>
+  <%= link_to "#{i.id}", "/images/#{i.id}" %>
 <% end %>

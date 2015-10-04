@@ -11,8 +11,22 @@ class ImagesController < ApplicationController
     event = Event.create(image: @img, ip: request.env['REMOTE_ADDR'])
     event.save
   end
+  
+  def create
+    @user = current_user
+    @img = Image.create( image_params )
+    @img.user = @user
+    @img.save
+    flash[:notice] = "Image uploaded successfully!"
+    redirect_to "/images"
+  end
 
   protected
   def store_ip
+  end
+
+  private
+  def image_params
+      params.require(:image).permit(:image)
   end
 end
