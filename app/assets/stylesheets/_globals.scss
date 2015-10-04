@@ -1,7 +1,7 @@
 body {
   margin: 0;
 }
-#flash_notice {
+#flash_notice, #flash_alert {
   @include outer-container;
 }
 .section-wrapper {
