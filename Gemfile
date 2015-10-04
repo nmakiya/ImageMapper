@@ -6,7 +6,7 @@ gem 'sass'
 gem 'bourbon', '~> 3.2.3'
 gem 'neat', '~> 1.0.0'
 gem 'refills'
-gem 'devise', '~> 3.0.0.rc'
+gem 'devise', '~> 3.4.0'
 gem 'figaro'
 gem 'newrelic_rpm'
 
