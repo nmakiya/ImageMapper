@@ -8,7 +8,8 @@ class ImagesController < ApplicationController
   def show
     @user = current_user
     @img = Image.find(params[:id]) if params[:id]
-    event = Event.create(image: @img, ip: request.env['REMOTE_ADDR'])
+    geocode = request.location
+    event = Event.create(image: @img, ip: geocode.ip, latitude: geocode.latitude, longitude: geocode.longitude)
     event.save
     gon.events = @img.events
   end

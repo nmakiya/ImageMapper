@@ -44,8 +44,7 @@ $(document).ready(function() {
         var loc = new google.maps.LatLng(coordinate[0], coordinate[1]),
         marker = new google.maps.Marker({
           position: loc,
-          map: map,
-          title: Math.round(coordinate[0]) + "," + Math.round(coordinate[1])
+          map: map
         });
         return marker
     }
