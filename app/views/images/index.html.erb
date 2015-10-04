@@ -1,9 +1,19 @@
+<div class="section-wrapper">
+<h1>Upload an Image</h1>
 <%= form_for :image, url: '/images/new', html: { multipart: true } do |form| %>
   <%= form.file_field :image %>
   <%= form.submit %>
 <% end %>
+</div>
 
+<div class="section-wrapper">
+<h1>My Images</h1>
+<div class="flex-boxes">
 <% @user.images.each do |i| %>
-  <%= i.image.url %>
-  <%= link_to "#{i.id}", "/images/#{i.id}" %>
+  <%= link_to("/images/#{i.id}", class: "flex-box") do %>
+    <%= image_tag i.image.url(:thumb) %>
+    <h1 class="flex-title"><%= i.image_file_name %></h1>
+  <% end %>
 <% end %>
+</div>
+</div>

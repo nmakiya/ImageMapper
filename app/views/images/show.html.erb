@@ -1,7 +1,11 @@
-
-<%= image_tag @img.image.url %>
-
 <%= Gon::Base.render_data %>
 
+<div class="section-wrapper">
+<h1><%= @img.image_file_name %></h1>
+<%= image_tag @img.image.url %>
+
+<h1>Image Access Map</h1>
 <div id="map_canvas"></div>
+
+</div>
 

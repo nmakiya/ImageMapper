@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+}
+#flash_notice {
+  @include outer-container;
+}
+.section-wrapper {
+  margin: 20px 0;
+  @include outer-container;
+}

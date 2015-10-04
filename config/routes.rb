@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users do 
-    get '/users/sign_out' => 'devise/sessions#destroy' 
-  end
+  devise_for :users 
 
   get '/users/:id' => "users#show"
   get '/images' => "images#index"

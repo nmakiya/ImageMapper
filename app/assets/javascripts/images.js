@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  if(typeof(gon) !== undefined) {
+  if(typeof(gon) == "undefined") {
     return ;
   }
 
