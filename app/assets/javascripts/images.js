@@ -1,5 +1,20 @@
 $(document).ready(function() {
-  var bittersMap = (function () {
+
+  // Get coordinates from events for plotting
+  var events = gon.events;
+  validEvents = _.filter(events, function(e) {
+    return e.latitude && e.longitude;
+  });
+  var coordinates = _.map(validEvents, function(e) {
+    return [e.latitude, e.longitude];
+  });
+  coordinates = _.uniq(coordinates, function(item, key, a) {
+    return item[0] + ":" + item[1];
+  });
+  console.log(coordinates);
+
+  // Plot map and coordinates
+  var Map = (function () {
     var mapCenter = new google.maps.LatLng(0, 0),
         mapCanvas = document.getElementById('map_canvas'),
         mapOptions = {
@@ -23,12 +38,17 @@ $(document).ready(function() {
         infowindow = new google.maps.InfoWindow({
           content: contentString,
           maxWidth: 300
-        }),
+        })
+    
+    var getMarker = function(coordinate) {
+        var loc = new google.maps.LatLng(coordinate[0], coordinate[1]),
         marker = new google.maps.Marker({
-          position: mapCenter,
+          position: loc,
           map: map,
-          title: 'Center'
+          title: Math.round(coordinate[0]) + "," + Math.round(coordinate[1])
         });
+        return marker
+    }
 
     return {
       init: function () {
@@ -41,13 +61,15 @@ $(document).ready(function() {
             { lightness: 10}
           ]}
         ]);
-
-        google.maps.event.addListener(marker, 'click', function () {
-          infowindow.open(map,marker);
-        });
+        coordinates.forEach(function(coord) {
+          var marker = getMarker(coord);
+          google.maps.event.addListener(marker, 'click', function () {
+            infowindow.open(map, marker);
+          });
+        });        
       }
     };
   }());
 
-  bittersMap.init();
+  Map.init();
 });

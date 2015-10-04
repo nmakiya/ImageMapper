@@ -10,6 +10,7 @@ class ImagesController < ApplicationController
     @img = Image.find(params[:id]) if params[:id]
     event = Event.create(image: @img, ip: request.env['REMOTE_ADDR'])
     event.save
+    gon.events = @img.events
   end
   
   def create
