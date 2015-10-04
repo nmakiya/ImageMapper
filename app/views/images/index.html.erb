@@ -11,7 +11,7 @@
 <div class="flex-boxes">
 <% @user.images.each do |i| %>
   <%= link_to("/images/#{i.id}", class: "flex-box") do %>
-    <%= image_tag i.image.url(:thumb) %>
+    <%= image_tag i.image.url %>
     <h1 class="flex-title"><%= i.image_file_name %></h1>
   <% end %>
 <% end %>
