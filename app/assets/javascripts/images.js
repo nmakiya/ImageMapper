@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+  if(typeof(gon) !== undefined) {
+    return ;
+  }
+
   // Get coordinates from events for plotting
   var events = gon.events;
   validEvents = _.filter(events, function(e) {

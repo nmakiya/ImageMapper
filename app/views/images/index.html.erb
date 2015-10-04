@@ -5,5 +5,5 @@
 
 <% @user.images.each do |i| %>
   <%= i.image.url %>
-  <%= link_to "#{i.id}", "/images/#{i.id}", {"data-no-turbolink" => true} %>
+  <%= link_to "#{i.id}", "/images/#{i.id}" %>
 <% end %>
