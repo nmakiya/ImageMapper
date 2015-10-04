@@ -1,0 +1,3 @@
+<%= form_for @user, url: '/users/update', html: { multipart: true } do |form| %>
+  <%= form.file_field :image %>
+<% end %>
