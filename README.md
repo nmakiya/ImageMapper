@@ -38,4 +38,5 @@ i.e. http://ipinfo.io/8.8.8.8
 
   - Write tests!
   - Improve styling!
+  - Try a slick d3 map instead of the standard Google Map
 
