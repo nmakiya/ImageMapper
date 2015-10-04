@@ -40,4 +40,25 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  ActionMailer::Base.smtp_settings = {
+    :address        => "smtp.sendgrid.net",
+    :port           => 587,
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => ENV['DOMAIN'],
+    :enable_starttls_auto => true
+  }
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_protocol => "https",
+    :s3_host_name => "s3-us-west-2.amazonaws.com",
+    :s3_credentials => {
+      :bucket => ENV['s3_bucket'],
+      :access_key_id => ENV['aws_id'],
+      :secret_access_key => ENV['aws_key']
+    }
+  }
 end
