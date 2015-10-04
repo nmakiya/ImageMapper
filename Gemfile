@@ -11,7 +11,6 @@ gem 'devise', '~> 3.4.0'
 gem 'figaro'
 gem 'newrelic_rpm'
 gem 'aws-sdk', '< 2.0'
-gem 'geocoder'
 gem 'gon'
 gem 'cancancan'
 
