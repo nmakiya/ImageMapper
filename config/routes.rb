@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   end
 
   get '/users/:id' => "users#show"
-  get '/images' => "home#images"
+  get '/images' => "images#index"
+  get '/images/:id' => "images#show"
 
   root to: "home#index"
 end
