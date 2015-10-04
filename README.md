@@ -14,6 +14,7 @@ Quick summary:
   - Figaro for local dev config 
   - Devise for users 
   - Client-side event tracking with Google Geocoder (switched from server-side initially using geocoder gem)
+  - http://ipinfo.io/ for retrieving IP lat/long
 
 ## Simulate Events
 
