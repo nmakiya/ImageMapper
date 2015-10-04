@@ -54,6 +54,7 @@ GEM
       thor
     builder (3.2.2)
     byebug (6.0.2)
+    cancancan (1.12.0)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     climate_control (0.0.3)
@@ -255,6 +256,7 @@ DEPENDENCIES
   better_errors
   bourbon (~> 3.2.3)
   byebug
+  cancancan
   coffee-rails (~> 4.1.0)
   devise (~> 3.4.0)
   factory_girl_rails

@@ -12,6 +12,7 @@ gem 'newrelic_rpm'
 gem 'aws-sdk', '< 2.0'
 gem 'geocoder'
 gem 'gon'
+gem 'cancancan'
 
 gem 'byebug', group: [:development, :test]
 gem 'better_errors', group: [:development, :test]

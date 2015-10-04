@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
-  before_filter :store_ip
+  before_action :authenticate_user!
+  load_and_authorize_resource
 
   def index
     @user = current_user
@@ -8,6 +9,7 @@ class ImagesController < ApplicationController
   def show
     @user = current_user
     @img = Image.find(params[:id]) if params[:id]
+
     geocode = request.location
     event = Event.create(image: @img, ip: geocode.ip, latitude: geocode.latitude, longitude: geocode.longitude)
     event.save
