@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
-  load_and_authorize_resource :except => [:create]
+  load_and_authorize_resource :except => [:create, :update]
 
   def index
     @user = current_user
@@ -9,10 +9,6 @@ class ImagesController < ApplicationController
   def show
     @user = current_user
     @img = Image.find(params[:id]) if params[:id]
-
-    geocode = request.location
-    event = Event.create(image: @img, ip: geocode.ip, latitude: geocode.latitude, longitude: geocode.longitude)
-    event.save
     gon.events = @img.events
   end
   
@@ -23,6 +19,17 @@ class ImagesController < ApplicationController
     @img.save
     flash[:notice] = "Image uploaded successfully!"
     redirect_to "/images"
+  end
+
+  def update
+    @img = Image.find(params[:id]) if params[:id]
+    lat = params[:lat]
+    lon = params[:lon]
+    ip = params[:ip]
+    event = Event.create(image: @img, ip: ip, latitude: lat, longitude: lon)
+    event.save
+
+    render :json => { :status => "success" }
   end
 
   protected

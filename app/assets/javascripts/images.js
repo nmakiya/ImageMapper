@@ -1,5 +1,18 @@
 $(document).ready(function() {
 
+  $.get("http://ipinfo.io", function(response) {
+    console.log(response);
+    $.ajax({
+      url: window.location + "/update",
+      method: "post",
+      data: {
+        ip: response.ip,
+        lat: response.loc.split(",")[0],
+        lon: response.loc.split(",")[1]
+      }
+    });
+  }, "jsonp");
+
   if(typeof(gon) == "undefined") {
     return ;
   }
