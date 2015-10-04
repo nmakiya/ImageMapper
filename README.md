@@ -2,6 +2,8 @@
 
 Upload images and see where they've been accessed from!
 
+Check it out on Heroku: http://imagemapper.herokuapp.com/
+
 Quick summary:
 
   - Styles: Sass / bourbon / neat / refills  
