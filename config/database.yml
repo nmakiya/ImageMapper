@@ -11,7 +11,7 @@ default: &default
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: imagemapper_dev
   username: "postgres"
   password: "dbpass"
 
@@ -20,8 +20,9 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: imagemapper_test
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  url: <%= ENV['DATABASE_URL'] %>
+

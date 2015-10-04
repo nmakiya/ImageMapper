@@ -2,18 +2,17 @@ source 'https://rubygems.org'
 
 gem 'paperclip'
 gem 'pg'
-gem 'sass', '~> 3.2.2'
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass'
 gem 'bourbon', '~> 3.2.3'
 gem 'neat', '~> 1.0.0'
 gem 'refills'
-gem 'jquery-rails'
 gem 'devise', '~> 3.0.0.rc'
 gem 'figaro'
+gem 'newrelic_rpm'
 
 gem 'byebug', group: [:development, :test]
 gem 'better_errors', group: [:development, :test]
-igem 'rspec-rails', group: [:development, :test]
+gem 'rspec-rails', group: [:development, :test]
 gem 'guard-rails', group: [:development, :test]
 gem 'factory_girl_rails', group: [:development, :test]
 
