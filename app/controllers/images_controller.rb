@@ -28,12 +28,9 @@ class ImagesController < ApplicationController
     ip = params[:ip]
     event = Event.create(image: @img, ip: ip, latitude: lat, longitude: lon)
     event.save
-
     render :json => { :status => "success" }
-  end
-
-  protected
-  def store_ip
+  rescue
+    render :json => { :status => "error" }
   end
 
   private
